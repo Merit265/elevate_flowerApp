@@ -8,6 +8,9 @@ import { AdaptorService } from './adaptor/adaptor.adaptor';
 import { ForgetPassData, LoginData, RegisterData } from './interface/LoginData';
 import { LoginRes } from './interface/LoginRes';
 import { BASE_URL } from './base-url.token';
+import { Store } from '@ngrx/store';
+import { setUserToken } from '../../../../src/app/store/token.action';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +18,14 @@ import { BASE_URL } from './base-url.token';
 export class AuthService implements AuthApi {
 
   baseUrl = inject(BASE_URL);
-  constructor(private http: HttpClient, private _AdaptorService: AdaptorService) { }
+  constructor(
+    private http: HttpClient,
+    private _AdaptorService: AdaptorService,
+) {
+
+  }
+
+
   signIn(data: LoginData): Observable<any> {
 
     return this.http.post(`${this.baseUrl}${AuthEndPoints.signin}`, data).
@@ -30,12 +40,15 @@ export class AuthService implements AuthApi {
       )
 
   }
+
   signup(data: RegisterData): Observable<any> {
     return this.http.post(`${this.baseUrl}${AuthEndPoints.signup}`, data).pipe(
       map((res: any) => { return this._AdaptorService.adapt(res) })
     )
 
   }
+
+
   forgotPassword(data: ForgetPassData): Observable<any> {
     return this.http.post(`${this.baseUrl}${AuthEndPoints.forgotPassword}`, data).pipe(
       map((res: any) => { return this._AdaptorService.adaptforgetPassMsg(res) })

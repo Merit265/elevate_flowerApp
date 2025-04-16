@@ -1,0 +1,43 @@
+   <header class="bg-white dark:bg-gray-800 shadow-lg">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a  class="text-2xl font-bold text-indigo-800 dark:text-white transition-colors duration-300">
+                <img src="images/logo.png"  class='w-[70px]' alt="">
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a  class="nav-link text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">Home</a>
+                <a  class="nav-link text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">About</a>
+                <a  (click)="xyz()"  class="nav-link text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">Services</a>
+                <a  class="nav-link text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">Contact</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+               
+                <a  class=" text-[#F82BA9]  transition-colors duration-300">
+                 <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a  class=" text-[#F82BA9]  transition-colors duration-300">
+                 <i class="fa-regular fa-heart"></i>
+                </a>
+                <a  class=" text-[#F82BA9]  transition-colors duration-300">
+                 <i class="fa-solid fa-bag-shopping"></i>
+                </a>
+                <a (click)="logOut()" class=" text-[#F82BA9]  transition-colors duration-300">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </a>
+
+            </div>
+            <button id="mobileMenuButton" class="md:hidden text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white focus:outline-none transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 shadow-lg absolute w-full left-0 transform -translate-y-full opacity-0">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <a  class="block text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">Home</a>
+                <a  class="block text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">About</a>
+                <a  class="block text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">Services</a>
+                <a  class="block text-gray-700 dark:text-gray-200 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">Contact</a>
+                <a  class="inline-block bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">Sign Up</a>
+            </div>
+        </div>
+    </header>

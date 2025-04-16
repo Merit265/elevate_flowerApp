@@ -7,11 +7,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../../../projects/auth/src/public-api';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule , RouterLink],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -54,6 +54,7 @@ export class RegisterComponent {
   );
 
   _AuthonService = inject(AuthService);
+  _Router = inject(Router);
 
   //custom validation
   confirmPassword(f: any) {
@@ -72,6 +73,7 @@ export class RegisterComponent {
       this._AuthonService.signup(form.value).subscribe({
         next: (resp) => {
           console.log(resp);
+          this._Router.navigate(['/login'])
 
         },
         error: (errrr) => {
