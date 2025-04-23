@@ -8,10 +8,11 @@ import { Observable } from "rxjs";
 import { AsyncPipe } from "@angular/common";
 import { CookieService } from "ngx-cookie-service";
 import { setUserToken } from "../../store/token.action";
+import { RouterLink } from '@angular/router';
 
 
 @Component({
-  imports: [CutTextPipe , AsyncPipe],
+  imports: [CutTextPipe , AsyncPipe , RouterLink],
   selector: 'app-home',
   styleUrls: ['./home.component.scss'],
   templateUrl: './home.component.html'
