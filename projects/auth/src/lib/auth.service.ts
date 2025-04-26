@@ -28,7 +28,7 @@ export class AuthService implements AuthApi {
 
   signIn(data: LoginData): Observable<any> {
 
-    return this.http.post(`${this.baseUrl}${AuthEndPoints.signin}`, data).
+    return this.http.post(`${this.baseUrl}auth/${AuthEndPoints.signin}`, data).
       pipe(
         map((res: any) => this._AdaptorService.adapt(res)),
         // catchError(err => {
@@ -42,7 +42,7 @@ export class AuthService implements AuthApi {
   }
 
   signup(data: RegisterData): Observable<any> {
-    return this.http.post(`${this.baseUrl}${AuthEndPoints.signup}`, data).pipe(
+    return this.http.post(`${this.baseUrl}auth/${AuthEndPoints.signup}`, data).pipe(
       map((res: any) => { return this._AdaptorService.adapt(res) })
     )
 
@@ -50,7 +50,7 @@ export class AuthService implements AuthApi {
 
 
   forgotPassword(data: ForgetPassData): Observable<any> {
-    return this.http.post(`${this.baseUrl}${AuthEndPoints.forgotPassword}`, data).pipe(
+    return this.http.post(`${this.baseUrl}auth/${AuthEndPoints.forgotPassword}`, data).pipe(
       map((res: any) => { return this._AdaptorService.adaptforgetPassMsg(res) })
     )
   }

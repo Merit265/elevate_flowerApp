@@ -1,3 +1,4 @@
+import { numOfCartItemsReducer } from './store/numOfCartItems.reducer';
 import { provideServiceWorker } from '@angular/service-worker';
 import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
@@ -13,11 +14,12 @@ export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
-    { provide: BASE_URL, useValue: 'https://flower.elevateegy.com/api/v1/auth' },
+    { provide: BASE_URL, useValue: 'https://flower.elevateegy.com/api/v1/' },
     provideServiceWorker('ngsw-worker.js', {
         enabled: !isDevMode(),
         registrationStrategy: 'registerWhenStable:30000'
     }), provideStore({
-      userToken : tokenReducer
+      userToken : tokenReducer ,
+      numOfCartItems:numOfCartItemsReducer
     })]
 };

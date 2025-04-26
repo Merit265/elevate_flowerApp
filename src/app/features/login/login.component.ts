@@ -44,7 +44,7 @@ export class LoginComponent {
 
       this._AuthService.signIn(form.value).subscribe({
         next: res => {
-          console.log(res);
+          console.log('logiiiiiiiin' ,res);
           this.setToken(res.myToken);
           this.store.dispatch(setUserToken({ userToken: res.myToken }));
           this._Router.navigate(['/home'])

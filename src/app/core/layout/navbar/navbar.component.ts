@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CookieService } from 'ngx-cookie-service';
 import { clearUserToken, setUserToken } from '../../../store/token.action';
@@ -10,7 +10,7 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   _cookieService = inject(CookieService);
   store = inject(Store<{ userToken: string }>);
   _Router = inject(Router);
@@ -22,7 +22,17 @@ export class NavbarComponent {
     this._Router.navigate(['/login'])
 
   }
+  ngOnInit(): void {
+    this.store.select('numOfCartItems').subscribe({
+      next: (num) => {
+        console.log('new cartttt', num);
 
- 
+      }
+    })
+
+  }
+
+
+
 
 }
